@@ -81,6 +81,13 @@ class RTCSDKManager {
     }
 
     /**
+     * 切换前置后置摄像头
+     */
+    fun setSwitchCamera(enabled: Boolean){
+        AgoraRtcSdkManager.instance()?.setSwitchCamera()
+    }
+
+    /**
      * 开启视频
      */
     fun startEnableVideo() {
@@ -129,6 +136,38 @@ class RTCSDKManager {
      */
     fun setVoiceConversionPreset(preset:Int){
         AgoraRtcSdkManager.instance()?.setVoiceConversionPreset(preset)
+    }
+
+    fun playMusic(filepath: String?, cycle: Int) {
+        AgoraRtcSdkManager.instance()?.playMusic(filepath,cycle)
+    }
+
+    fun stopMusic() {
+        AgoraRtcSdkManager.instance()?.stopMusic()
+    }
+
+    fun pauseMusic() {
+        AgoraRtcSdkManager.instance()?.pauseMusic()
+    }
+
+    fun resumeMusic() {
+        AgoraRtcSdkManager.instance()?.resumeMusic()
+    }
+
+    fun setMusicVolumeRtc(volume: Int) {
+        AgoraRtcSdkManager.instance()?.setMusicVolumeRtc(volume)
+    }
+
+    fun getMusicDuration(): Float? {
+        return AgoraRtcSdkManager.instance()?.getMusicDuration()
+    }
+
+    fun getMusicCurrentPosition(): Float? {
+        return AgoraRtcSdkManager.instance()?.getMusicCurrentPosition()
+    }
+
+    fun setMusicPosition(startPos: Long) {
+        AgoraRtcSdkManager.instance()?.setMusicPosition(startPos)
     }
 
     interface OnErrorCallback {

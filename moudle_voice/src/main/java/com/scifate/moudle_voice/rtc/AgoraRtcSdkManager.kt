@@ -163,7 +163,14 @@ class AgoraRtcSdkManager {
     }
 
     /**
-     *
+     * 切换前置后置摄像头
+     */
+    fun setSwitchCamera(){
+        mRtcEngine?.switchCamera()
+    }
+
+    /**
+     * 开启视频
      */
     fun startEnableVideo() {
         mRtcEngine?.enableVideo()
@@ -247,6 +254,38 @@ class AgoraRtcSdkManager {
             }
         }
         return mRtcEngine?.setVoiceConversionPreset(agoraPreset)
+    }
+
+    fun playMusic(filepath: String?, cycle: Int) {
+        mRtcEngine?.startAudioMixing(filepath, false, false, cycle,0)
+    }
+
+    fun stopMusic() {
+        mRtcEngine?.stopAudioMixing()
+    }
+
+    fun pauseMusic() {
+        mRtcEngine?.pauseAudioMixing()
+    }
+
+    fun resumeMusic() {
+        mRtcEngine?.resumeAudioMixing()
+    }
+
+    fun setMusicVolumeRtc(volume: Int) {
+        mRtcEngine?.adjustAudioMixingVolume(volume)
+    }
+
+    fun getMusicDuration(): Float {
+        return mRtcEngine?.audioMixingDuration?.toFloat() ?: 0f
+    }
+
+    fun getMusicCurrentPosition(): Float {
+        return mRtcEngine?.audioMixingCurrentPosition?.toFloat() ?: 0f
+    }
+
+    fun setMusicPosition(position: Long) {
+        mRtcEngine?.setAudioMixingPosition(position.toInt())
     }
 
     /**
