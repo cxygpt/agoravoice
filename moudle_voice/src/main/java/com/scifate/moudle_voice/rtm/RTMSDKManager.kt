@@ -72,7 +72,6 @@ class RTMSDKManager {
      */
     fun login(
         userID: String,
-        userName: String,
         token: String,
         callback: OnLoggedInCallback,
     ) {
@@ -98,10 +97,8 @@ class RTMSDKManager {
 
     /**
      * 接受呼叫邀请
-     * callID 呼叫人id
      */
     fun callAccept(
-        callID: String,
         callback: OnCallAcceptanceSentCallback,
     ) {
         AgoraRtmSdkManager.instance()?.callAccept(callback)
@@ -113,8 +110,6 @@ class RTMSDKManager {
      * callID 呼叫人id
      */
     fun callCancel(
-        userID: String? = null,
-        callID: String? = null,
         callback: OnCallCancelSentCallback,
     ) {
         AgoraRtmSdkManager.instance()?.callCancel(callback)
@@ -124,7 +119,6 @@ class RTMSDKManager {
      * 拒绝呼叫邀请
      */
     fun callReject(
-        callID: String,
         callback: OnCallRejectionSentCallback,
     ) {
         AgoraRtmSdkManager.instance()?.callReject(callback)
@@ -133,14 +127,14 @@ class RTMSDKManager {
     /**
      * 发送自定义消息
      */
-    fun sendChannelMessage(message: String, channel: String, callback: OnMessageSentCallback) {
+    fun sendChannelMessage(message: String,callback: OnMessageSentCallback) {
         AgoraRtmSdkManager.instance()?.sendChannelMessage(message, callback)
     }
 
     /**
      * 离开房间
      */
-    fun leaveRoom(roomID: String) {
+    fun leaveRoom() {
         AgoraRtmSdkManager.instance()?.leaveRoom()
     }
 

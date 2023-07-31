@@ -1,7 +1,6 @@
 package com.scifate.moudle_voice.rtc
 
 import android.app.Application
-import android.view.TextureView
 import android.widget.FrameLayout
 
 /**
@@ -83,7 +82,7 @@ class RTCSDKManager {
     /**
      * 切换前置后置摄像头
      */
-    fun setSwitchCamera(enabled: Boolean){
+    fun setSwitchCamera(){
         AgoraRtcSdkManager.instance()?.setSwitchCamera()
     }
 
@@ -98,7 +97,7 @@ class RTCSDKManager {
      * role 1 主播 2 观众
      * 设置角色
      */
-    fun setIdentity(role: Int, userID: Int){
+    fun setIdentity(role: Int){
         AgoraRtcSdkManager.instance()?.setIdentity(role)
     }
 
@@ -106,14 +105,14 @@ class RTCSDKManager {
     /**
      * 开始推流
      */
-    fun startPublish(application: Application, userID: Int, localView: FrameLayout?,liveView: TextureView?) {
+    fun startPublish(application: Application, userID: Int, localView: FrameLayout?) {
         AgoraRtcSdkManager.instance()?.startPublish(application, userID, localView)
     }
 
     /**
      * 开始拉流
      */
-    fun startPlaying(application: Application, userID: Int, remoteView: FrameLayout?, liveView: TextureView?) {
+    fun startPlaying(application: Application, userID: Int, remoteView: FrameLayout?) {
         AgoraRtcSdkManager.instance()?.startPlaying(application, userID, remoteView)
     }
 
